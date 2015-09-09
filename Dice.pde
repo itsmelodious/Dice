@@ -1,4 +1,4 @@
-Die one;
+Die d;
 
 void setup()
 {
@@ -8,8 +8,8 @@ void setup()
 void draw()
 {
 	background(204, 255, 204);
-	one = new Die(10, 10);
-	one.show();
+	d = new Die(10, 10);
+	d.show();			
 }
 void mousePressed()
 {
@@ -20,8 +20,7 @@ class Die //models one single dice cube
 	int num, myX, myY, siz;
 	Die(int x, int y) //constructor
 	{
-		//num = (int)(Math.random()*6)+1;
-		num = 2;
+		num = (int)(Math.random()*6)+1;
 		myX = x;
 		myY = y;
 		siz = 35;
@@ -39,26 +38,28 @@ class Die //models one single dice cube
 		{
 			ellipse(myX + 75, myY + 75, siz, siz);
 		}
-		else if (num == 2)
+		else if (num == 2 || num == 3 || num == 4 || num == 5 || num == 6)
 		{
 			ellipse(myX + 37.5, myY + 37.5, siz, siz);
 			ellipse(myX + 112.5, myY + 112.5, siz, siz);
-		}
-		else if (num == 3)
-		{
-			// code here
-		}
-		else if (num == 4)
-		{
-			// code here
-		}
-		else if (num == 5)
-		{
-			// code here
-		}
-		else if (num == 6)
-		{
-			// code here
+			if (num == 3)
+			{
+				ellipse(myX + 75, myY + 75, siz, siz);
+			}
+			else if (num == 4 || num == 5 || num == 6)
+			{
+				ellipse(myX + 112.5, myY + 37.5, siz, siz);
+				ellipse(myX + 37.5, myY + 112.5, siz, siz);
+				if (num == 5)
+				{
+					ellipse(myX + 75, myY + 75, siz, siz);
+				}
+				else if (num == 6)
+				{
+					ellipse(myX + 37.5, myY + 75, siz, siz);
+					ellipse(myX + 112.5, myY + 75, siz, siz);
+				}
+			}
 		}
 	}
 }
