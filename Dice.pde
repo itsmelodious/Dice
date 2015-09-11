@@ -13,6 +13,7 @@ void draw()
 		for(int x = 10; x <= 345; x += 165)
 		{
 			d = new Die(x, y);
+			d.roll();
 			d.show();
 			fill(204, 255, 204);
 			noStroke();
@@ -32,11 +33,14 @@ class Die //models one single dice cube
 	int num, myX, myY, siz, sum;
 	Die(int x, int y) //constructor
 	{
-		num = (int)(Math.random()*6)+1;
 		myX = x;
 		myY = y;
 		siz = 35;
 		sum = 0;
+	}
+	void roll()
+	{
+		num = (int)(Math.random()*6)+1;
 	}
 	void show()
 	{
