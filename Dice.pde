@@ -7,6 +7,7 @@ void setup()
 }
 void draw()
 {
+	int sum = 0;
 	background(204, 255, 204);
 	for(int y = 10; y <= 345; y += 165)
 	{
@@ -20,7 +21,8 @@ void draw()
 			rect(0, 510, 500, 90);
 			fill(0);
 			textSize(35);
-			text("Total: " + d.sum, 10, 550);
+			sum = sum + d.num;
+			text("Total: " + sum, 10, 550);
 		}
 	}			
 }
@@ -30,13 +32,12 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	int num, myX, myY, siz, sum;
+	int num, myX, myY, siz;
 	Die(int x, int y) //constructor
 	{
 		myX = x;
 		myY = y;
 		siz = 35;
-		sum = 0;
 	}
 	void roll()
 	{
@@ -51,20 +52,17 @@ class Die //models one single dice cube
 		if (num == 1)
 		{
 			ellipse(myX + 75, myY + 75, siz, siz);
-			sum += 1;
 		}
 		else if (num == 2)
 		{
 			ellipse(myX + 37.5, myY + 37.5, siz, siz);
 			ellipse(myX + 112.5, myY + 112.5, siz, siz);
-			sum += 2;
 		}
 		else if (num == 3)
 		{
 			ellipse(myX + 37.5, myY + 37.5, siz, siz);
 			ellipse(myX + 112.5, myY + 112.5, siz, siz);
 			ellipse(myX + 75, myY + 75, siz, siz);
-			sum += 3;
 		}
 		else if (num == 4)
 		{
@@ -72,7 +70,6 @@ class Die //models one single dice cube
 			ellipse(myX + 112.5, myY + 112.5, siz, siz);
 			ellipse(myX + 112.5, myY + 37.5, siz, siz);
 			ellipse(myX + 37.5, myY + 112.5, siz, siz);
-			sum += 4;
 		}
 		else if (num == 5)
 		{
@@ -81,7 +78,6 @@ class Die //models one single dice cube
 			ellipse(myX + 112.5, myY + 37.5, siz, siz);
 			ellipse(myX + 37.5, myY + 112.5, siz, siz);
 			ellipse(myX + 75, myY + 75, siz, siz);
-			sum += 5;
 		}
 		else if (num == 6)
 		{
@@ -91,32 +87,6 @@ class Die //models one single dice cube
 			ellipse(myX + 37.5, myY + 112.5, siz, siz);
 			ellipse(myX + 37.5, myY + 75, siz, siz);
 			ellipse(myX + 112.5, myY + 75, siz, siz);
-			sum += 6;
 		}
-		// else if (num == 2 || num == 3 || num == 4 || num == 5 || num == 6)
-		// {
-		// 	ellipse(myX + 37.5, myY + 37.5, siz, siz);
-		// 	ellipse(myX + 112.5, myY + 112.5, siz, siz);
-		// 	sum+=2;
-		// 	if (num == 3)
-		// 	{
-		// 		ellipse(myX + 75, myY + 75, siz, siz);
-		// 		sum+=3;
-		// 	}
-		// 	else if (num == 4 || num == 5 || num == 6)
-		// 	{
-		// 		ellipse(myX + 112.5, myY + 37.5, siz, siz);
-		// 		ellipse(myX + 37.5, myY + 112.5, siz, siz);
-		// 		if (num == 5)
-		// 		{
-		// 			ellipse(myX + 75, myY + 75, siz, siz);
-		// 		}
-		// 		else if (num == 6)
-		// 		{
-		// 			ellipse(myX + 37.5, myY + 75, siz, siz);
-		// 			ellipse(myX + 112.5, myY + 75, siz, siz);
-		// 		}
-		// 	}
-		// }
 	}
 }
